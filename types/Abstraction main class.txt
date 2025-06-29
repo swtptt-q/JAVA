@@ -1,0 +1,13 @@
+//Abstraction main class
+
+package activity2;
+
+public class ComputeSTGMain {
+    public static void main (String [] args)
+    {
+    	classofSTG grade = new classofSTG();
+    		grade.inputScore();
+         	grade.getTotalGrade();
+         	grade.getTermGrade();
+    }
+}

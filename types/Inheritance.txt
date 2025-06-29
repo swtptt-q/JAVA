@@ -1,0 +1,82 @@
+//Inheritance
+
+import java.util.Scanner;
+
+public class activity2025 {
+    public static void main(String[] args) {
+        Payroll payrollRecord = new Payroll();
+        payrollRecord.inputStaffDetails();
+        payrollRecord.inputAdditionalSalaryDetails();
+        payrollRecord.displayPayrollSummary();
+    }
+}
+
+// Parent class
+class StaffMember {
+    public int staffId;
+    public String staffName;
+    public String jobPosition;
+    public int fixedPay;
+
+    public StaffMember() {
+        fixedPay = 5000;
+    }
+
+    public void inputStaffDetails() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Staff ID: ");
+        staffId = scanner.nextInt();
+        scanner.nextLine(); 
+
+        System.out.print("Enter Staff Name: ");
+        staffName = scanner.nextLine();
+
+        System.out.print("Enter Job Position: ");
+        jobPosition = scanner.nextLine();
+    }
+}
+
+// Child class
+class Payroll extends StaffMember {
+    public int extraHoursWorked;
+    public int allowance;
+    public int bonus;
+    public int deductionAmount;
+    public int monthSalary;
+
+    public void inputAdditionalSalaryDetails() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Extra Hours Worked: ");
+        extraHoursWorked = scanner.nextInt();
+
+        System.out.print("Enter Allowance: ");
+        allowance = scanner.nextInt();
+
+        System.out.print("Enter Bonus: ");
+        bonus = scanner.nextInt();
+
+        System.out.print("Enter Deduction Amount: ");
+        deductionAmount = scanner.nextInt();
+    }
+
+    public void displayPayrollSummary() {
+        System.out.println("\n------ Staff Information ------");
+        System.out.println("Staff ID: " + staffId);
+        System.out.println("Staff Name: " + staffName);
+        System.out.println("Job Position: " + jobPosition);
+        System.out.println("Fixed Pay: " + fixedPay);
+
+        System.out.println("\n------ Additional Salary Details ------");
+        System.out.println("Extra Hours Worked: " + extraHoursWorked);
+        System.out.println("Allowance: " + allowance);
+        System.out.println("Bonus: " + bonus);
+        System.out.println("Deduction: " + deductionAmount);
+
+
+        monthSalary = fixedPay + (extraHoursWorked * 50) + allowance + bonus - deductionAmount;
+
+        System.out.println("\n------ Payroll Summary ------");
+        System.out.println("Monthly Salary: " + monthSalary);
+    }
+}

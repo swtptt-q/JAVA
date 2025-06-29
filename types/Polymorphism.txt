@@ -1,0 +1,66 @@
+//Polymorphism
+
+import java.util.Scanner;
+
+public class Missing {
+    public static void main(String[] args) {
+        Triangle t = new RightTriangle();
+        t.calculateTriangle();
+    }
+}
+
+// Base abstract class
+abstract class Triangle {
+    abstract void calculateTriangle();
+}
+
+// Subclass with the logic
+class RightTriangle extends Triangle {
+    @Override
+    void calculateTriangle() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Which side is unknown? (a, b, c):");
+        String unknown = input.next();  // Simple input
+
+        double a = 0;
+        double b = 0;
+        double c = 0;
+
+        if (unknown.equals("a")) {
+            System.out.print("Enter side b: ");
+            b = input.nextDouble();
+            System.out.print("Enter side c (hypotenuse): ");
+            c = input.nextDouble();
+
+            if (c > b) {
+                a = Math.sqrt(c * c - b * b);
+                System.out.println("Missing side a is: " + a);
+            } else {
+                System.out.println("Invalid input: hypotenuse must be longer than the leg.");
+            }
+        } else if (unknown.equals("b")) {
+            System.out.print("Enter side a: ");
+            a = input.nextDouble();
+            System.out.print("Enter side c (hypotenuse): ");
+            c = input.nextDouble();
+
+            if (c > a) {
+                b = Math.sqrt(c * c - a * a);
+                System.out.println("Missing side b is: " + b);
+            } else {
+                System.out.println("Invalid input: hypotenuse must be longer than the leg.");
+            }
+        } else if (unknown.equals("c")) {
+            System.out.print("Enter side a: ");
+            a = input.nextDouble();
+            System.out.print("Enter side b: ");
+            b = input.nextDouble();
+
+            c = Math.sqrt(a * a + b * b);
+            System.out.println("Missing side c (hypotenuse) is: " + c);
+        } else {
+            System.out.println("Invalid choice. Please enter a, b, or c.");
+        }
+    }
+}

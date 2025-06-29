@@ -1,0 +1,40 @@
+//Encapsulation
+
+public class Encapsulation {
+ 
+	public static void main(String[]args) {
+		Circles myCircle = new Circles();
+		myCircle.setRadius(7);
+		
+		System.out.println("The Radius:" + myCircle.getRadius() );
+		System.out.println("The Area:" + myCircle.calculateArea());
+		System.out.println("The Perimeter:" + myCircle.calculatePerimeter());
+
+	}
+}
+
+class Circles
+{
+private int radius;
+
+
+public int getRadius()
+{
+	return radius;
+}
+
+public void setRadius(int radius)
+{
+	this.radius=radius;
+}
+
+double calculateArea() 
+{
+    return 3.1416*radius*radius;
+}
+
+double calculatePerimeter()
+{
+	return  2*3.1416*radius;
+}
+}

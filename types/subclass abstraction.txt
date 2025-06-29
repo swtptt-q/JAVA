@@ -1,0 +1,60 @@
+//subclass abstraction
+
+package activity2;
+import java.util.Scanner;
+
+public class classofSTG {
+	
+	public double SP;
+	public double TISP;
+	public double SR;
+	public double TISR;
+	public double SQ;
+	public double TISQ;
+	public double SE;
+	public double TISE;
+	
+	
+	public void inputScore()
+	
+	{
+	Scanner input = new Scanner (System.in);
+	System.out.println("Enter your score in Performance Output:");
+	SP = input.nextDouble();
+	System.out.println("Enter your item in Performance Output:");
+	TISP = input.nextDouble();
+	System.out.println("Enter your score in Recitation/Class Participation:");
+	SR = input.nextDouble();
+	System.out.println("Enter your item in Recitation/Class Participation:");
+	TISR = input.nextDouble();
+	System.out.println("Enter your score in Quizzes:");
+	SQ = input.nextDouble();
+	System.out.println("Enter your item in Quizzes:");
+	TISQ = input.nextDouble();
+	System.out.println("Enter your score in Exam:");
+	SE = input.nextDouble();
+	System.out.println("Enter your score in Exam:");
+	TISE = input.nextDouble();
+	}
+	
+	public double getTotalGrade()
+	{
+		double TotalGrade = (((SP/TISP)*40) + ((SR/TISR)*15) + ((SQ/TISQ)*15) + ((SE/TISE)*30))*.625 + 37.5;
+		return TotalGrade;
+	}
+	
+	public void getTermGrade() {
+	
+	if (getTotalGrade() >=75)
+	{
+	  System.out.println("Your Total Term Grade is " + getTotalGrade() + "." +  " CONGRATS!YOU PASSED.");
+	  }
+	  else 
+	  {
+		  System.out.println("Your Total Term Grade is " + getTotalGrade() + "." + " SORRY!YOU FAILED.");
+	  }
+
+	}
+	}
+	
+	
